@@ -30,8 +30,8 @@ client.on('message', async (message) => {
       // BOTは除く
       if (member.user.id !== botId) {
         try {
-          member.send(`Your number is ${hands[index]}!`)
-          member.send(`Theme is ${theme}!`)
+          member.send(`あなたの番号は ${hands[index]} です！`)
+          member.send(`お題は ${theme} です！`)
         } catch (error) {
           console.error(`Couldn't DM member ${member.user.tag}.`)
         } finally {
@@ -42,6 +42,14 @@ client.on('message', async (message) => {
         }
       }
     })
+  }
+  // お題の追加機能
+  else if (message.content === `${config.prefix}add`) {
+    message.channel.send('This function is not implemented.')
+  }
+  // お題一覧表示機能
+  else if (message.content === `${config.prefix}show`) {
+    message.channel.send('This function is not implemented.')
   }
 })
 
