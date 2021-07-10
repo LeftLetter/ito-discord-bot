@@ -1,5 +1,5 @@
 {
-  "name": "vscode-nodejs-template",
+  "name": "ito-discord-bot",
   "dockerFile": "Dockerfile",
   "shutdownAction": "none",
   "appPort": "3500:3000",
@@ -11,8 +11,8 @@
     "donjayamanne.githistory"
   ],
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash",
-    "editor.formatOnSave": false,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "editor.detectIndentation": false,
     "editor.insertSpaces": true,
@@ -20,9 +20,8 @@
       "source.fixAll.eslint": true
     },
     "vetur.format.defaultFormatter.js": "none",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true,
       "editor.tabSize": 2
     },
     "[jsonc]": {

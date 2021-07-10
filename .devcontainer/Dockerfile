@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14
 
 RUN npm i -g express-generator
 RUN npm i -g create-nuxt-app 
