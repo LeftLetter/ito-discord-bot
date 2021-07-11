@@ -1,0 +1,24 @@
+{
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "vetur.format.defaultFormatter.js": "none",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.tabSize": 2
+  }
+}
