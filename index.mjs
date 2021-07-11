@@ -8,16 +8,25 @@ dotenv.config()
 const client = new Discord.Client()
 const token = process.env.DISCORD_TOKEN
 const botId = process.env.APP_ID
+const itoChannelId = process.env.ITO_CHANNEL_ID
 
 client.once('ready', () => {
   console.log('Ready!')
 })
 
 client.on('message', async (message) => {
+  // BOTのメッセージには反応しない
+  if (message.author.bot) {
+    return
+  }
+
+  // ITOチャンネル（ボイスチャンネル）
+  const itoChannel = message.guild.channels.cache.get(itoChannelId)
+
   // startコマンドで開始
   if (message.content === `${config.prefix}start`) {
     // 手札の生成
-    const hands = getHands(message.guild.memberCount - 1) // BOTの分1引く
+    const hands = getHands(itoChannel.members.size)
     console.log(`Hands are ${hands}.`)
 
     // テーマの決定
@@ -25,19 +34,19 @@ client.on('message', async (message) => {
     console.log(`Theme is ${theme}.`)
     let index = 0
 
-    // ギルドの参加者全員にDM送信
-    message.guild.members.cache.forEach((member) => {
+    // ITOチャンネルの参加者全員にDM送信
+    itoChannel.members.forEach((member) => {
       // BOTは除く
       if (member.user.id !== botId) {
         try {
           member.send(`あなたの番号は ${hands[index]} です！`)
           member.send(`お題は ${theme} です！`)
-        } catch (error) {
-          console.error(`Couldn't DM member ${member.user.tag}.`)
-        } finally {
           console.log(
             `Number ${hands[index]} was dealt to ${member.user.username}.`
           )
+        } catch (error) {
+          console.error(`Couldn't DM member ${member.user.tag}.`)
+        } finally {
           index++
         }
       }
