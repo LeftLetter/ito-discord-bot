@@ -19,7 +19,7 @@ const initCommands = async () => {
 }
 initCommands()
 
-client.on('message', async (message) => {
+client.on('message', (message) => {
   // 通常メッセージとBOTのメッセージには反応しない
   if (!message.content.startsWith(config.prefix) || message.author.bot) {
     return
