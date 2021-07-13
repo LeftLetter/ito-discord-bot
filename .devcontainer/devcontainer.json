@@ -8,7 +8,7 @@
     "esbenp.prettier-vscode",
     "octref.vetur",
     "eamodio.gitlens",
-    "donjayamanne.githistory"
+    "mhutchie.git-graph"
   ],
   "settings": {
     "terminal.integrated.defaultProfile.linux": "bash",
